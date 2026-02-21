@@ -23,28 +23,22 @@ long duration;
 
 float distance;
  // Create variable to store calculated distance
+
 /**
  * @brief Arduino setup function.
  * @details Initializes Serial communication at 9600 baud and configures
  *          the TRIG and ECHO pins for the ultrasonic sensor.
  * @return void
  */
-
-
 void setup() {
+ Serial.begin(9600);
 
-    // TODO 5:
-    // Initialize Serial communication (9600 baud rate)
+ pinMode(TRIG_pin, OUTPUT);
+ pinMode(ECHO_pin, INPUT);
 
-    // TODO 6:
-    // Configure TRIG as OUTPUT
-
-    // TODO 7:
-    // Configure ECHO as INPUT
-
-    // TODO 8:
-    // Print system initialization message
+ Serial.println("Ultrasonic Sensor System Initialized");
 }
+
 
 void loop() {
 
