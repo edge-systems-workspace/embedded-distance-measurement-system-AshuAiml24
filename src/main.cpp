@@ -57,7 +57,7 @@ void loop() {
 
  duration = pulseIn(ECHO_pin, HIGH);
 
- distance = duration * 0.034 / 2;
+ distance = (float)(duration * 0.034 / 2);
 
  Serial.print("Distance: ");
  Serial.print(distance);
