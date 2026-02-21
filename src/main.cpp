@@ -40,23 +40,28 @@ void setup() {
 }
 
 
+/**
+ * @brief Arduino main loop function.
+ * @details Sends a trigger pulse to the HC-SR04, measures the echo pulse
+ *          duration, converts the duration to distance in centimeters,
+ *          and prints the result to the Serial Monitor.
+ * @return void
+ */
 void loop() {
+ digitalWrite(TRIG_pin, LOW);
+ delayMicroseconds(2);
 
-    // TODO 9:
-    // Set TRIG LOW for 2 microseconds
+ digitalWrite(TRIG_pin, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(TRIG_pin, LOW);
 
-    // TODO 10:
-    // Send 10 microsecond pulse on TRIG
+ duration = pulseIn(ECHO_pin, HIGH);
 
-    // TODO 11:
-    // Measure pulse duration on ECHO using pulseIn()
+ distance = duration * 0.034 / 2;
 
-    // TODO 12:
-    // Calculate distance in cm
+ Serial.print("Distance: ");
+ Serial.print(distance);
+ Serial.println(" cm");
 
-    // TODO 13:
-    // Print calculated distance
-
-    // TODO 14:
-    // Add delay (500ms)
+ delay(500);
 }
